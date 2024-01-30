@@ -38,7 +38,7 @@ def fit_kriging(df, validation_index, lng_list, lat_list):
             # 这里要求像素数量要大于1
             if (len(lons) > 2):
                 # 使用克里金插值方法进行补值
-                OK = OrdinaryKriging(lons, lats, datas, variogram_model='gaussian', nlags=6)
+                OK = OrdinaryKriging(lons, lats, datas, variogram_model='hole-effect', nlags=1)
                 z1, ss1 = OK.execute('points', lng_list, lat_list)
                 pred_values = z1.flatten()
 
@@ -50,10 +50,12 @@ def fit_kriging(df, validation_index, lng_list, lat_list):
 
                     relative_error += math.fabs(true_value-pred_value) / true_value
                 relative_error = relative_error / len(point_index)
+                # if (relative_error < 1):
                 relative_error_list.append(relative_error)
 
-
-    average_relative_error = np.mean(relative_error_list)
+    average_relative_error = 0
+    if (len(relative_error_list)):
+        average_relative_error = np.mean(relative_error_list)
     return average_relative_error
 
 def testKriging():
@@ -144,7 +146,8 @@ if __name__ == "__main__":
                  "Ponce",
                  "SanJuan"]
     parent_dir = "D:\\VZA_Article\\data\\event_longTime\\id18_20180121_20190120\\"
-    time_series_type = "new_method"
+    # time_series_type = "new_method"
+    time_series_type = "TS_Txt"
 
     start_time = "20180121"
     end_time = "20190120"

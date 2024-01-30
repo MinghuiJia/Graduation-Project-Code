@@ -217,7 +217,8 @@ if __name__=="__main__":
                  "Ponce",
                  "SanJuan"]
     parent_dir = "D:\\VZA_Article\\data\\event_longTime\\id18_20180121_20190120\\"
-    time_series_type = "new_method"
+    # time_series_type = "new_method"
+    time_series_type = "TS_Txt"
 
     start_time = "20180121"
     end_time = "20190120"
