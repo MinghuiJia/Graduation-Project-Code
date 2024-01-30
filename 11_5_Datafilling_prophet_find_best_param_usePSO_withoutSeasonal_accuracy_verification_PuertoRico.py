@@ -403,7 +403,8 @@ if __name__=="__main__":
         datasets = loadData(file_path, start_time, end_time)
 
         pic_save_dir = parent_dir + time_series_type
-        PSO_Params = [2, 2, 0.01, 2, 2, 0.5]
+        # PSO_Params = [2, 2, 0.01, 2, 2, 0.5]
+        PSO_Params = [5, 5, 0.01, 2, 2, 0.5]
 
         start = time.time()  # 主进程1
         # 进行补值精度验证
