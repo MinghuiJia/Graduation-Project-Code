@@ -393,18 +393,25 @@ if __name__=="__main__":
                  "Ponce",
                  "SanJuan"]
     parent_dir = "D:\\VZA_Article\\data\\event_longTime\\id18_20180121_20190120\\"
-    time_series_type = "new_method"
+    # 这是角度校正后的数据对应的文件夹
+    # time_series_type = "new_method"
+    # 这是角度校正前的数据对应的文件夹
+    time_series_type = "TS_Txt_Constrained_By_LC_Larger50%"
 
     start_time = "20180121"
     end_time = "20190120"
 
     for name in name_list:
-        file_path = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_fit_result_gradientDescent_1%_1invalid_"+str(name)
+        # 这是角度校正后的数据对应的文件名
+        # file_path = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_fit_result_gradientDescent_1%_1invalid_"+str(name)
+        # 这是角度校正前的数据对应的文件名
+        file_path = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_1%_1invalid_"+str(name)
+
         datasets = loadData(file_path, start_time, end_time)
 
         pic_save_dir = parent_dir + time_series_type
-        # PSO_Params = [2, 2, 0.01, 2, 2, 0.5]
-        PSO_Params = [5, 5, 0.01, 2, 2, 0.5]
+        PSO_Params = [2, 2, 0.01, 2, 2, 0.5]
+        # PSO_Params = [5, 5, 0.01, 2, 2, 0.5]
 
         start = time.time()  # 主进程1
         # 进行补值精度验证
@@ -442,7 +449,11 @@ if __name__=="__main__":
             average_error = average_error / len(results)
             accuracy_list.append(average_error)
         # 结果写入文件
-        outputFile = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_1%_1invalid_"+str(name)+"_more50_Prophet_accuracy_error_afterfit"
+        # 这是角度校正后的数据对应的精度保存文件名
+        # outputFile = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_1%_1invalid_"+str(name)+"_more50_Prophet_accuracy_error_afterfit"
+        # 这是角度校正前的数据对应的精度保存文件名
+        outputFile = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_1%_1invalid_"+str(name)+"_more50_Prophet_accuracy_error_beforefit"
+
         f = open(outputFile, 'w')
         key_list = []
         if (len(datasets)):
