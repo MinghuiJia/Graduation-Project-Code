@@ -257,12 +257,12 @@ def visTimeSeries(pointsDic,pointsDic_fit, area, show_point_key, start_time, end
             # plt.title(r"$\bf{Los\ Angeles\ " + key + "}$",{'size': 16})
             # plt.title(area+r" point "+key, fontproperties="SimHei",fontsize=22)
             plt.title(area + r" " + key, fontproperties="Adobe Gothic Std", fontsize=22)
-            # plt.xlabel(u"日期",
-            #            fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf", weight='extra bold'),
-            #            fontsize=22)
-            plt.xlabel(u"Date",
-                       fontproperties=font_manager.FontProperties(fname="C:/Users/jmh1998/AppData/Local/Microsoft/Windows/Fonts/AdobeGothicStd-Bold.otf", weight='extra bold'),
+            plt.xlabel(u"日期",
+                       fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf", weight='extra bold'),
                        fontsize=22)
+            # plt.xlabel(u"Date",
+            #            fontproperties=font_manager.FontProperties(fname="C:/Users/jmh1998/AppData/Local/Microsoft/Windows/Fonts/AdobeGothicStd-Bold.otf", weight='extra bold'),
+            #            fontsize=22)
             plt.ylabel(r"夜光辐亮度", labelpad=15,
                        fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf", weight='extra bold'),
                        fontsize=22)
@@ -340,9 +340,9 @@ def visVZATimeSeries(pointsDic,pointsDic_fit, area, show_point_key, start_time, 
 
             # plt.title(r"$\bf{Los\ Angeles\ " + key + "}$",{'size': 16})
             # plt.title(area+r" point "+key, fontproperties="SimHei",fontsize=22)
-            # plt.xlabel(u"日期",
-            #            fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf", weight='extra bold'),
-            #            fontsize=22)
+            plt.xlabel(u"日期",
+                       fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf", weight='extra bold'),
+                       fontsize=22)
             plt.ylabel(r"夜光辐亮度", labelpad=15,
                        fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf", weight='extra bold'),
                        fontsize=22)
@@ -356,11 +356,11 @@ def visVZATimeSeries(pointsDic,pointsDic_fit, area, show_point_key, start_time, 
             plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(30))   #更改横坐标的密度
 
             plt.title(area + r" " + key, fontproperties="Adobe Gothic Std", fontsize=22)
-            plt.xlabel(u"Date",
-                       fontproperties=font_manager.FontProperties(
-                           fname="C:/Users/jmh1998/AppData/Local/Microsoft/Windows/Fonts/AdobeGothicStd-Bold.otf",
-                           weight='extra bold'),
-                       fontsize=22)
+            # plt.xlabel(u"Date",
+            #            fontproperties=font_manager.FontProperties(
+            #                fname="C:/Users/jmh1998/AppData/Local/Microsoft/Windows/Fonts/AdobeGothicStd-Bold.otf",
+            #                weight='extra bold'),
+            #            fontsize=22)
             plt.yticks(fontproperties=font_manager.FontProperties(
                 fname="C:/Users/jmh1998/AppData/Local/Microsoft/Windows/Fonts/AdobeGothicStd-Bold.otf"))
             plt.xticks(fontproperties=font_manager.FontProperties(
@@ -431,9 +431,9 @@ def visNTLTimeSeries(pointsDic,pointsDic_fit, area, show_point_key, start_time, 
 
             # plt.title(r"$\bf{Los\ Angeles\ " + key + "}$",{'size': 16})
             # plt.title(area+r" point "+key, fontproperties="SimHei",fontsize=22)
-            # plt.xlabel(u"日期",
-            #            fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf", weight='extra bold'),
-            #            fontsize=22)
+            plt.xlabel(u"日期",
+                       fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf", weight='extra bold'),
+                       fontsize=22)
             plt.ylabel(r"夜光辐亮度", labelpad=15,
                        fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf", weight='extra bold'),
                        fontsize=22)
@@ -447,11 +447,11 @@ def visNTLTimeSeries(pointsDic,pointsDic_fit, area, show_point_key, start_time, 
             plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(30))   #更改横坐标的密度
 
             plt.title(area + r" " + key, fontproperties="Adobe Gothic Std", fontsize=22)
-            plt.xlabel(u"Date",
-                       fontproperties=font_manager.FontProperties(
-                           fname="C:/Users/jmh1998/AppData/Local/Microsoft/Windows/Fonts/AdobeGothicStd-Bold.otf",
-                           weight='extra bold'),
-                       fontsize=22)
+            # plt.xlabel(u"Date",
+            #            fontproperties=font_manager.FontProperties(
+            #                fname="C:/Users/jmh1998/AppData/Local/Microsoft/Windows/Fonts/AdobeGothicStd-Bold.otf",
+            #                weight='extra bold'),
+            #            fontsize=22)
             plt.yticks(fontproperties=font_manager.FontProperties(
                 fname="C:/Users/jmh1998/AppData/Local/Microsoft/Windows/Fonts/AdobeGothicStd-Bold.otf"))
             plt.xticks(fontproperties=font_manager.FontProperties(
@@ -573,12 +573,12 @@ def visDataFillingTimeSeries(pointsDic,pointsDic_fit, pointsLoc, area, show_poin
             # plt.title(r"$\bf{Los\ Angeles\ " + key + "}$",{'size': 16})
             # plt.title(area+r" point "+key, fontproperties="SimHei",fontsize=22)
             plt.title(area + r" " + key, fontproperties="Adobe Gothic Std", fontsize=22)
-            # plt.xlabel(u"日期",
-            #            fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf", weight='extra bold'),
-            #            fontsize=22)
-            plt.xlabel(u"Date",
-                       fontproperties=font_manager.FontProperties(fname="C:/Users/jmh1998/AppData/Local/Microsoft/Windows/Fonts/AdobeGothicStd-Bold.otf", weight='extra bold'),
+            plt.xlabel(u"日期",
+                       fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf", weight='extra bold'),
                        fontsize=22)
+            # plt.xlabel(u"Date",
+            #            fontproperties=font_manager.FontProperties(fname="C:/Users/jmh1998/AppData/Local/Microsoft/Windows/Fonts/AdobeGothicStd-Bold.otf", weight='extra bold'),
+            #            fontsize=22)
             plt.ylabel(r"夜光辐亮度", labelpad=15,
                        fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf", weight='extra bold'),
                        fontsize=22)
