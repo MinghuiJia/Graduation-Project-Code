@@ -233,38 +233,38 @@ def normalizationZenith(visX_dic,visY_dic,outputFile,output_params_path):
         # f.write(key + "leastsq solve:" + ",a1:" + str(a1) + ",b1:" + str(b1) + ",c1:" + str(1) + "\n")
         # f.write(key + ":" + str(math.pow(r,2)) + "\n")
         #
-        # # 二次拟合(多项式拟合)
-        # parameters = np.polyfit(visX_dic[key], visY_dic[key], 2)
-        # # 用于绘图
-        # x = np.arange(0, 90, 0.02)
-        # y = parameters[0] * x ** 2 + parameters[1] * x ** 1 + parameters[2]
-        #
-        # # plt.tick_params
-        # plt.figure(figsize=(8, 6))
-        # plt.rcParams['font.sans-serif'] = ['SimHei','Adobe Gothic Std']
-        # # plt.tick_params(labelsize=16)
-        #
-        # # 可视化散点和拟合曲线
-        # plt.scatter(visX_dic[key], visY_dic[key], color='black', s=5, label='original points')
-        # # plt.scatter(visX_dic[key], visY_dic[key], color='black', s=5, label='原始观测数据')
-        # ccc = np.array(normalizationY) * 1
+        # 二次拟合(多项式拟合)
+        parameters = np.polyfit(visX_dic[key], visY_dic[key], 2)
+        # 用于绘图
+        x = np.arange(0, 90, 0.02)
+        y = parameters[0] * x ** 2 + parameters[1] * x ** 1 + parameters[2]
+
+        # plt.tick_params
+        plt.figure(figsize=(8, 6))
+        plt.rcParams['font.sans-serif'] = ['SimHei','Adobe Gothic Std']
+        # plt.tick_params(labelsize=16)
+
+        # 可视化散点和拟合曲线
+        plt.scatter(visX_dic[key], visY_dic[key], color='black', s=5, label='original points')
+        # plt.scatter(visX_dic[key], visY_dic[key], color='black', s=5, label='原始观测数据')
+        ccc = np.array(normalizationY) * 1
         # plt.scatter(visX_dic[key], ccc, color='green', s=10, label='correct points')
-        # # plt.plot(x, y, color='red', label='quadratic fit')
-        # plt.plot(x, y, color='red', label='二次拟合曲线')
-        # # plt.title(r"$\bf{Los\ Angeles\ " + key + "}$",{'size': 16})   #Phoenix    #Las Vegas Kathmandu Las\ Vegas\
-        # # plt.title(r"北干巴鲁2号研究点", fontproperties="SimHei",fontsize=22)  # Phoenix    #Las Vegas Kathmandu Las\ Vegas\
-        #
-        # # plt.xlabel(r"$\bf{VZA(Degree)}$",{'size': 16})
-        # plt.xlabel(u"传感器观测天顶角（度）", fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf",weight='extra bold'),fontsize=22)
-        # # plt.ylabel(r"$\bf{DNB\ BRDF-Corrected\ NTL\ Radiance}$",{'size': 16})
-        # plt.ylabel(r"每日月光与大气校正后的夜间灯光辐射值", labelpad=5,fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf",weight='extra bold'),fontsize=22)
+        # plt.plot(x, y, color='red', label='quadratic fit')
+        plt.plot(x, y, color='red', label='二次拟合曲线')
+        # plt.title(r"$\bf{Los\ Angeles\ " + key + "}$",{'size': 16})   #Phoenix    #Las Vegas Kathmandu Las\ Vegas\
+        # plt.title(r"北干巴鲁2号研究点", fontproperties="SimHei",fontsize=22)  # Phoenix    #Las Vegas Kathmandu Las\ Vegas\
+
+        # plt.xlabel(r"$\bf{VZA(Degree)}$",{'size': 16})
+        plt.xlabel(u"传感器观测天顶角（度）", fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf",weight='extra bold'),fontsize=22)
+        # plt.ylabel(r"$\bf{DNB\ BRDF-Corrected\ NTL\ Radiance}$",{'size': 16})
+        plt.ylabel(r"每日月光与大气校正后的夜间灯光辐射值", labelpad=5,fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf",weight='extra bold'),fontsize=22)
         # plt.legend(loc="upper right",prop={'size': 22,"family" : "SimHei"})
-        # plt.yticks(fontproperties=font_manager.FontProperties(
-        #     fname="C:/Users/jmh1998/AppData/Local/Microsoft/Windows/Fonts/AdobeGothicStd-Bold.otf"))
-        # plt.xticks(fontproperties=font_manager.FontProperties(
-        #     fname="C:/Users/jmh1998/AppData/Local/Microsoft/Windows/Fonts/AdobeGothicStd-Bold.otf"))
-        # plt.tick_params(labelsize=20)
-        # plt.show()
+        plt.yticks(fontproperties=font_manager.FontProperties(
+            fname="C:/Users/jmh1998/AppData/Local/Microsoft/Windows/Fonts/AdobeGothicStd-Bold.otf"))
+        plt.xticks(fontproperties=font_manager.FontProperties(
+            fname="C:/Users/jmh1998/AppData/Local/Microsoft/Windows/Fonts/AdobeGothicStd-Bold.otf"))
+        plt.tick_params(labelsize=20)
+        plt.show()
     f1.close()
     f.close()
     return normalizationResult_array
@@ -441,11 +441,11 @@ def visTimeSeries(pointsDic,pointsDic_fit, area):
 # 奥尔巴尼效果比较好在R2上
 if __name__=="__main__":
     # 需要读取的文件夹路径
-    # name_list = ["Arecibo", "Bayamon", "Caguas", "Carolina", "Guayama", "Humacao", "Mayaguez", "Ponce", "SanJuan"]
-    name_list = ["SanJuan"]
+    name_list = ["Arecibo", "Bayamon", "Caguas", "Carolina", "Guayama", "Humacao", "Ponce", "SanJuan"]
+    # name_list = ["SanJuan"]
 
     parent_dir = "D:\\VZA_article\\data\\event_longTime\\id18_20180121_20190120\\"
-    time_series_type = "TS_Txt_Constrained_By_LC_Larger50%"
+    time_series_type = "represent_pixel_VZA"
     for name in name_list:
         work_dic = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_1%_1invalid_"+str(name)
         fit_result_path = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_fit_result_gradientDescent_1%_1invalid_"+str(name)
@@ -455,11 +455,11 @@ if __name__=="__main__":
         # 读取经过筛选的有效数据（保存在文件中）
         pointNumLngLatMap,pointsDic = readFile(work_dic)
 
-        # # 可视化角度和夜光值之间的关系，拟合并归一化，将归一化后的数据保存在文件中
-        # visScatterAndFitCurve(pointsDic,output_dic,fit_result_path,pointNumLngLatMap, output_params_path)
+        # 可视化角度和夜光值之间的关系，拟合并归一化，将归一化后的数据保存在文件中
+        visScatterAndFitCurve(pointsDic,output_dic,fit_result_path,pointNumLngLatMap, output_params_path)
 
-        # 读取筛选数据经过角度归一化后的数据（读取之前需要执行visScatterAndFitCurve进行校正）
-        pointNumLngLatMap_fit, pointsDic_fit = readFile(fit_result_path)
-        #
-        # 可视化时间序列，并计算NDHDNTL
-        visTimeSeries(pointsDic, pointsDic_fit,name)
+        # # 读取筛选数据经过角度归一化后的数据（读取之前需要执行visScatterAndFitCurve进行校正）
+        # pointNumLngLatMap_fit, pointsDic_fit = readFile(fit_result_path)
+        # #
+        # # 可视化时间序列，并计算NDHDNTL
+        # visTimeSeries(pointsDic, pointsDic_fit,name)
