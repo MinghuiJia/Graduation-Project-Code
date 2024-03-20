@@ -4,7 +4,8 @@ import os
 
 OECD_Country_List = {
     # "TURSYR_20220101_20230301": ["h20v04", "h20v05", "h21v04", "h21v05", "h22v04", "h22v05"],
-    "TURSYR_20230301_20230501": ["h20v04", "h20v05", "h21v04", "h21v05", "h22v04", "h22v05"],
+    # "TURSYR_20230301_20230501": ["h20v04", "h20v05", "h21v04", "h21v05", "h22v04", "h22v05"],
+    "TURSYR_20230501_20240208": ["h20v04", "h20v05", "h21v04", "h21v05", "h22v04", "h22v05"],
 }
 
 #  Julian day to date
@@ -82,14 +83,14 @@ if __name__ == "__main__":
     # 起止时间  start_time, end_time
     # 下载好的文件夹路径 H5Files_Path
     # 设置好，即可得到缺失文件的Tile及Time
-    Country_Name_shorthand = "TURSYR_20230301_20230501"
+    Country_Name_shorthand = "TURSYR_20230501_20240208"
 
     # 以下内容可以都不用改
     Country_Name_shorthand_List = Country_Name_shorthand.split("_")
     Country_Code = Country_Name_shorthand_List[0]
     Start_Time_Str = Country_Name_shorthand_List[1]
     End_Time_Str = Country_Name_shorthand_List[2]
-    H5Files_Path = "G:\\postgraduate\\postgraduate_bishe\\VNP46A2_res\\"
+    H5Files_Path = "G:\\postgraduate\\postgraduate_bishe\\VNP46A2_res_res\\"
     # H5Files_Path = "G:\\disaster_research_OECD_country_data\\JPN\\20200329_20200729\\"
     start_time = Start_Time_Str[:4] + "." + Start_Time_Str[4:6] + "." + Start_Time_Str[6:]
     end_time = End_Time_Str[:4] + "." + End_Time_Str[4:6] + "." + End_Time_Str[6:]
@@ -97,11 +98,11 @@ if __name__ == "__main__":
     # end_time = "2020.07.29"
 
     H5Files_Path_List, H5Files_Name_List = generateHDF5FilePath(H5Files_Path)
-    print(H5Files_Name_List)
+    # print(H5Files_Name_List)
     Country_Tiles_List = OECD_Country_List[Country_Name_shorthand]
     print(Country_Tiles_List)
     TimePeriod_list = generateTimePeriod(start_time, end_time)
-    print(TimePeriod_list)
+    # print(TimePeriod_list)
     count = 0
     for i in range(len(Country_Tiles_List)):
         for j in range(len(TimePeriod_list)):
@@ -130,6 +131,52 @@ h21v04: 2022.07.27(2022208)-2022.08.10(2022222) 2022.06.28(2022179)
 h21v05: 2022.07.26(2022207)-2022.08.10(2022222) 2022.06.28(2022179)
 h22v04: 2022.07.26(2022207)-2022.08.10(2022222) 2022.06.28(2022179)
 h22v05: 2022.07.26(2022207)-2022.08.10(2022222) 2022.06.28(2022179)
+'''
+
+
+'''
+A1
+h21v05 Time: 2023.11.01 DOY: 2023305
+h22v04 Time: 2023.11.01 DOY: 2023305
+h22v05 Time: 2023.11.01 DOY: 2023305
+'''
+
+'''
+A2
+h20v04 Time: 2023.07.26 (2023207)
+             2023.07.27 DOY: 2023208
+             2023.11.02 DOY: 2023306
+             2024.01.31 DOY: 2024031
+             
+h20v05 Time: 2023.07.26 DOY: 2023207
+             2023.07.27 DOY: 2023208
+             2023.11.02 DOY: 2023306
+             2024.01.31 DOY: 2024031
+             
+h21v04 Time: 2023.07.26 DOY: 2023207
+             2023.07.27 DOY: 2023208
+             2023.11.02 DOY: 2023306
+             2024.01.31 DOY: 2024031
+             
+h21v05 Time: 2023.07.26 DOY: 2023207
+             2023.07.27 DOY: 2023208
+             
+             2023.11.01 DOY: 2023305
+             
+             2023.11.02 DOY: 2023306
+             2024.01.31 DOY: 2024031
+             
+h22v04 Time: 2023.07.26 DOY: 2023207
+             2023.07.27 DOY: 2023208
+             2023.11.01 DOY: 2023305
+             2023.11.02 DOY: 2023306
+             2024.01.31 DOY: 2024031
+             
+h22v05 Time: 2023.07.26 DOY: 2023207
+             2023.07.27 DOY: 2023208
+             2023.11.01 DOY: 2023305
+             2023.11.02 DOY: 2023306
+             2024.01.31 DOY: 2024031
 '''
 
 
