@@ -273,13 +273,13 @@ def getDirs(path):
 if __name__=="__main__":
     gdal.AllRegister()  # 注册驱动
 
-    # File_Type = "VNP46A2"
-    # Science_DatasetType_List = ["QF_Cloud_Mask", "DNB_BRDF-Corrected_NTL", "Snow_Flag", "Mandatory_Quality_Flag"]
-    File_Type = "VNP46A1"
-    Science_DatasetType_List = ["Moon_Illumination_Fraction", "Solar_Zenith", "Sensor_Zenith"]
+    File_Type = "VNP46A2"
+    Science_DatasetType_List = ["QF_Cloud_Mask", "DNB_BRDF-Corrected_NTL", "Snow_Flag", "Mandatory_Quality_Flag"]
+    # File_Type = "VNP46A1"
+    # Science_DatasetType_List = ["Moon_Illumination_Fraction", "Solar_Zenith", "Sensor_Zenith"]
 
-    work_dic = "G:\\postgraduate\\postgraduate_bishe\\" + File_Type + "_res\\"  # hdf文件存放的目录
-    output_dic = "G:\\postgraduate\\postgraduate_bishe\\" + File_Type + "_res_tif\\"
+    work_dic = "G:\\postgraduate\\postgraduate_bishe\\" + File_Type + "_res_res\\"  # hdf文件存放的目录
+    output_dic = "G:\\postgraduate\\postgraduate_bishe\\" + File_Type + "_res_res_tif\\"
 
     for SDS_Type in Science_DatasetType_List:
         output_dic1 = output_dic + SDS_Type + "\\"
