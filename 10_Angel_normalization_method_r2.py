@@ -456,7 +456,7 @@ if __name__=="__main__":
                  "Kirikhan",
                  "Samandag"]
     parent_dir = "G:\\postgraduate\\postgraduate_bishe\\"
-    time_series_type = "TS_Txt_1_1_Long_Time"
+    time_series_type = "TS_Txt_Constrained_By_LC_Larger50%_1_1_20220902_20240208"
     for name in name_list:
         work_dic = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_1%_1invalid_"+str(name)
         fit_result_path = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_fit_result_gradientDescent_1%_1invalid_"+str(name)
