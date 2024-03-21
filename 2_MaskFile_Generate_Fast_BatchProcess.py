@@ -188,7 +188,7 @@ def getDirs(path):
 arcpy.CheckOutExtension("Spatial")
 
 if __name__ == "__main__":
-    File_Type = ["VNP46A2_res","VNP46A1_res"]
+    File_Type = ["VNP46A2_res_res","VNP46A1_res_res"]
     Cloud_Bit_Setting = {
         6: [[0]],  # "Day/Night"
         5: [[0, 0, 0], [0, 0, 1], [0, 1, 0], [1, 0, 1]],  # "Land/Water Background"
