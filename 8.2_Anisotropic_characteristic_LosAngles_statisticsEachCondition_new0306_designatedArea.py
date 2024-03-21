@@ -10,13 +10,18 @@ import math
 import xlwt
 
 Events_Gadm_Level_List = {
-    "SYR_20220101_20230301": {"Adm_urban": ["Adiyaman",
-                                            "Aleppo",
+    # "SYR_20220101_20230301": {"Adm_urban": ["Adiyaman",
+    #                                         "Aleppo",
+    #                                         "Antakya",
+    #                                         "Gaziantep",
+    #                                         "Kahramanmaras",
+    #                                         "Kirikhan",
+    #                                         "Latakia",
+    #                                         "Samandag"]},
+    "TURSYR_20220101_20240208": {"Adm_urban": ["Adiyaman",
                                             "Antakya",
-                                            "Gaziantep",
                                             "Kahramanmaras",
                                             "Kirikhan",
-                                            "Latakia",
                                             "Samandag"]},
 }
 
@@ -326,9 +331,9 @@ if __name__=="__main__":
                 # 需要读取的文件夹路径
                 ntl_work_dic = work_dic + "\\VNP46A2_tif\\DNB_BRDF-Corrected_NTL_joint_clip_" + Gadm_Name + "_noTranslation\\"
                 vza_work_dic = work_dic + "\\VNP46A1_tif\\Sensor_Zenith_joint_clip_" + Gadm_Name + "_noTranslation\\"
-                mask_work_dic = work_dic + "\\VNP46A2_tif\\MaskFile_joint_clip_" + Gadm_Name + "_noTranslation_Constrained_By_LC_Larger50%\\"
-                # mask_work_dic = work_dic + "\\VNP46A2_tif\\MaskFile_joint_clip_" + Gadm_Name + "_noTranslation\\"
-                output_dir = work_dic + "\\TS_Txt_Constrained_By_LC_Larger50%_1_1\\"
+                # mask_work_dic = work_dic + "\\VNP46A2_tif\\MaskFile_joint_clip_" + Gadm_Name + "_noTranslation_Constrained_By_LC_Larger50%\\"
+                mask_work_dic = work_dic + "\\VNP46A2_tif\\MaskFile_joint_clip_" + Gadm_Name + "_noTranslation\\"
+                output_dir = work_dic + "\\TS_Txt_1_1_Long_Time\\"
                 # output_dir = work_dic + "\\TS_Txt_1_1\\"
                 # 判断输出路径的文件夹是否存在，不存在则创建一个
                 if not os.path.exists(output_dir):
