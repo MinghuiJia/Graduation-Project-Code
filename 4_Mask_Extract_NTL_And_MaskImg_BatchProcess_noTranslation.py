@@ -87,7 +87,7 @@ if __name__ == "__main__":
 
                 Output_Clip_Tif_MaskImg_Dic = "G:\\postgraduate\\postgraduate_bishe\\" + File_Type + "_tif\\" + "MaskFile_joint_clip_" + Gadm_Name + "_noTranslation\\"
                 Output_Clip_Tif_NTL_Dic = "G:\\postgraduate\\postgraduate_bishe\\" + File_Type + "_tif\\" + "DNB_BRDF-Corrected_NTL_joint_clip_" + Gadm_Name + "_noTranslation\\"
-                Output_Clip_Tif_VZAImg_Dic = "G:\\postgraduate\\postgraduate_bishe\\VNP46A1_res_tif\\Sensor_Zenith_joint_clip_" + Gadm_Name + "_noTranslation\\"
+                Output_Clip_Tif_VZAImg_Dic = "G:\\postgraduate\\postgraduate_bishe\\VNP46A1_res_res_tif\\Sensor_Zenith_joint_clip_" + Gadm_Name + "_noTranslation\\"
 
                 mask_dic_new = ""
                 if (adm_type == "Adm_urban"):
