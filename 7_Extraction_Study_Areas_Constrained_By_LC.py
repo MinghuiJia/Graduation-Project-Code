@@ -13,13 +13,18 @@ Events_Gadm_Level_List = {
     #                                         "Kirikhan",
     #                                         "Latakia",
     #                                         "Samandag"]},
-    "SYR_20230301_20230501": {"Adm_urban": ["Adiyaman",
-                                            "Aleppo",
+    # "SYR_20230301_20230501": {"Adm_urban": ["Adiyaman",
+    #                                         "Aleppo",
+    #                                         "Antakya",
+    #                                         "Gaziantep",
+    #                                         "Kahramanmaras",
+    #                                         "Kirikhan",
+    #                                         "Latakia",
+    #                                         "Samandag"]},
+    "TURSYR_20230501_20240208": {"Adm_urban": ["Adiyaman",
                                             "Antakya",
-                                            "Gaziantep",
                                             "Kahramanmaras",
                                             "Kirikhan",
-                                            "Latakia",
                                             "Samandag"]},
 }
 
@@ -90,7 +95,7 @@ def generateHDF5FilePath(folderPath):
     return rasters, Name_List
 
 if __name__ == "__main__":
-    File_Type = "VNP46A2_res"
+    File_Type = "VNP46A2_res_res"
 
     for key in Events_Gadm_Level_List:
         # 基于Country_Name_shorthand解析出国家缩写，数据收集的开始与结束时间
