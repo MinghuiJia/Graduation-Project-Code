@@ -6,7 +6,8 @@ import math
 
 Events_List = {
     # "TURSYR_20220101_20230301": ["h20v04", "h20v05", "h21v04", "h21v05", "h22v04", "h22v05"],
-    "TURSYR_20230301_20230501": ["h20v04", "h20v05", "h21v04", "h21v05", "h22v04", "h22v05"],
+    # "TURSYR_20230301_20230501": ["h20v04", "h20v05", "h21v04", "h21v05", "h22v04", "h22v05"],
+    "TURSYR_20230501_20240208": ["h20v04", "h20v05", "h21v04", "h21v05", "h22v04", "h22v05"],
 }
 
 #  Julian day to date
@@ -140,23 +141,23 @@ def getDirs(path):
 
 # !!!!! 处理DNB的代码
 if __name__ == "__main__":
-    File_Type = "VNP46A2_res"
+    File_Type = "VNP46A2_res_res"
     # 构建工作路径，并生成需要拼接的数据所在的文件夹
     work_dic = "G:\\postgraduate\\postgraduate_bishe"
 
     tif_dir = work_dic + "\\" + File_Type + "_tif"
-    start_time = "2023.03.01"
-    end_time = "2023.05.01"
+    start_time = "2023.05.01"
+    end_time = "2024.02.08"
     # 构建字典中的键，用于得到对应需要拼接的tiles；并构建读取NTL影像与掩码影像的文件夹路径，以及拼接后保存的文件夹路径
-    Event_Index = "TURSYR_20230301_20230501"
+    Event_Index = "TURSYR_20230501_20240208"
 
     Tile_NTL_tif_path = tif_dir + "\\DNB_BRDF-Corrected_NTL\\"
     Tile_MaskImg_tif_path = tif_dir + "\\MaskFile\\"
-    Tile_VZAImg_tif_path = work_dic + "\\VNP46A1_res_tif\\Sensor_Zenith\\"
+    Tile_VZAImg_tif_path = work_dic + "\\VNP46A1_res_res_tif\\Sensor_Zenith\\"
 
     Output_NTL_dic = tif_dir + "\\DNB_BRDF-Corrected_NTL_joint\\"
     Output_MaskImg_dic = tif_dir + "\\MaskFile_joint\\"
-    Output_VZAImg_dic = work_dic + "\\VNP46A1_res_tif\\Sensor_Zenith_joint\\"
+    Output_VZAImg_dic = work_dic + "\\VNP46A1_res_res_tif\\Sensor_Zenith_joint\\"
 
     # 判断输出路径的文件夹是否存在，不存在则创建一个
     if not os.path.exists(Output_NTL_dic):
