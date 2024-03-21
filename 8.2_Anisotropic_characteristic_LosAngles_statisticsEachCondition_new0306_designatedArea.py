@@ -333,8 +333,8 @@ if __name__=="__main__":
                 vza_work_dic = work_dic + "\\VNP46A1_tif\\Sensor_Zenith_joint_clip_" + Gadm_Name + "_noTranslation\\"
                 # mask_work_dic = work_dic + "\\VNP46A2_tif\\MaskFile_joint_clip_" + Gadm_Name + "_noTranslation_Constrained_By_LC_Larger50%\\"
                 mask_work_dic = work_dic + "\\VNP46A2_tif\\MaskFile_joint_clip_" + Gadm_Name + "_noTranslation\\"
-                output_dir = work_dic + "\\TS_Txt_1_1_Long_Time\\"
-                # output_dir = work_dic + "\\TS_Txt_1_1\\"
+                # output_dir = work_dic + "\\TS_Txt_Constrained_By_LC_Larger50%_1_1_20220902_20240208\\"
+                output_dir = work_dic + "\\TS_Txt_1_1_20220902_20240208\\"
                 # 判断输出路径的文件夹是否存在，不存在则创建一个
                 if not os.path.exists(output_dir):
                     os.makedirs(output_dir)
