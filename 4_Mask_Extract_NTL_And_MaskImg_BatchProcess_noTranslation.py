@@ -23,13 +23,18 @@ Events_Gadm_Level_List = {
     #                                         "Latakia",
     #                                         "Samandag"]},
     # "SYR_20230301_20230501": {"Adm00": ["TUR_SYR"]},
-    "SYR_20230301_20230501": {"Adm_urban": ["Adiyaman",
-                                            "Aleppo",
+    # "SYR_20230301_20230501": {"Adm_urban": ["Adiyaman",
+    #                                         "Aleppo",
+    #                                         "Antakya",
+    #                                         "Gaziantep",
+    #                                         "Kahramanmaras",
+    #                                         "Kirikhan",
+    #                                         "Latakia",
+    #                                         "Samandag"]},
+    "TURSYR_20230501_20240208": {"Adm_urban": ["Adiyaman",
                                             "Antakya",
-                                            "Gaziantep",
                                             "Kahramanmaras",
                                             "Kirikhan",
-                                            "Latakia",
                                             "Samandag"]},
 }
 
@@ -60,7 +65,7 @@ arcpy.CheckOutExtension('Spatial')
 
 # !!!!! 处理掩码的代码
 if __name__ == "__main__":
-    File_Type = "VNP46A2_res"
+    File_Type = "VNP46A2_res_res"
 
     for key in sorted (Events_Gadm_Level_List):
         for adm_type in sorted(Events_Gadm_Level_List[key]):
@@ -76,9 +81,9 @@ if __name__ == "__main__":
                 Country_Code = eventID_startTime_endTime_List[0]
 
                 # 构建需要读取的夜光影像与掩码影像文件夹，以及夜光影像与掩码影像对应保存的文件夹路径，同时构建用于裁剪参考的gadm文件路径
-                Joint_Tif_MaskImg_Path = "G:\\postgraduate\\postgraduate_bishe\\" + File_Type + "_tif\\" + "MaskFile_joint_clip_TUR_SYR_noTranslation\\"
-                Joint_Tif_NTL_Path = "G:\\postgraduate\\postgraduate_bishe\\" + File_Type + "_tif\\" + "DNB_BRDF-Corrected_NTL_joint_clip_TUR_SYR_noTranslation\\"
-                Joint_Tif_VZAImg_Path = "G:\\postgraduate\\postgraduate_bishe\\VNP46A1_res_tif\\Sensor_Zenith_joint_clip_TUR_SYR_noTranslation\\"
+                Joint_Tif_MaskImg_Path = "G:\\postgraduate\\postgraduate_bishe\\" + File_Type + "_tif\\" + "MaskFile_joint\\"
+                Joint_Tif_NTL_Path = "G:\\postgraduate\\postgraduate_bishe\\" + File_Type + "_tif\\" + "DNB_BRDF-Corrected_NTL_joint\\"
+                Joint_Tif_VZAImg_Path = "G:\\postgraduate\\postgraduate_bishe\\VNP46A1_res_res_tif\\Sensor_Zenith_joint\\"
 
                 Output_Clip_Tif_MaskImg_Dic = "G:\\postgraduate\\postgraduate_bishe\\" + File_Type + "_tif\\" + "MaskFile_joint_clip_" + Gadm_Name + "_noTranslation\\"
                 Output_Clip_Tif_NTL_Dic = "G:\\postgraduate\\postgraduate_bishe\\" + File_Type + "_tif\\" + "DNB_BRDF-Corrected_NTL_joint_clip_" + Gadm_Name + "_noTranslation\\"
