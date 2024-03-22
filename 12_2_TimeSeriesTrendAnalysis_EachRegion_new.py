@@ -153,6 +153,7 @@ def getEachDistrictValue(dataFile):
     # total_value = np.divide(total_value, 1)
     return total_value,total_time
 
+# 角度校正前后的对比可视化
 if __name__=="__main__":
     work_dir = "G:\\postgraduate\\postgraduate_bishe\\"
     time_series_type = "TS_Txt_Constrained_By_LC_Larger50%_1_1"

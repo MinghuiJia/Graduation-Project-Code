@@ -13,7 +13,7 @@ import copy
 from pylab import mpl
 import time
 from matplotlib import font_manager
-from dataloader import loadData
+from dataloader_with_time import loadData
 
 import os
 import time
@@ -374,22 +374,33 @@ if __name__=="__main__":
     #              "Kirikhan",
     #              "Latakia",
     #              "Samandag"]
-    name_list = ["Antakya",
-                 "Kirikhan",
+    # name_list = [
+    #              "Kirikhan",
+    #              "Antakya",
+    #              "Samandag",
+    #              "Adiyaman",
+    #              "Kahramanmaras"]
+    name_list = [
                  "Samandag",
-                 "Adiyaman",
-                 "Kahramanmaras"]
+                 ]
     parent_dir = "G:\\postgraduate\\postgraduate_bishe\\"
-    time_series_type = "TS_Txt_Constrained_By_LC_Larger50%_3_3"
+    # time_series_type = "TS_Txt_Constrained_By_LC_Larger50%_1_1_20220902_20240208"
+    time_series_type = "TS_Txt_1_1_20220902_20240208"
+
+    start_time = "20220902"
+    end_time = "20240208"
+
     for name in name_list:
-        file_path = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_fit_result_gradientDescent_1%_1invalid_"+str(name)
-        datasets = loadData(file_path)
+        # file_path = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_fit_result_gradientDescent_1%_1invalid_"+str(name)
+        file_path = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_1%_1invalid_" + str(name)
+        datasets = loadData(file_path, start_time, end_time)
+        # datasets = loadData(file_path)
 
         pic_save_dir = parent_dir + time_series_type
         PSO_Params = [2, 2, 0.01, 2, 2, 0.5]
 
         start = time.time()  # 主进程1
-        pool = multiprocessing.Pool(5)
+        pool = multiprocessing.Pool(8)
         results = []
 
         for i in range(len(datasets)):
@@ -411,7 +422,7 @@ if __name__=="__main__":
         print('时间消耗是：', time.time() - start)
 
         # 结果写入文件
-        outputFile = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_1%_1invalid_"+str(name)+"_more50_wholeSeries_Prophet"
+        outputFile = parent_dir + time_series_type + "\\TS_output_withoutMoonIlluminationAndSnow_1%_1invalid_"+str(name)+"_more50_wholeSeries_Prophet_beforefit"
         f = open(outputFile, 'w')
         time_list = []
         if (len(datasets)):
