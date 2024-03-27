@@ -274,6 +274,9 @@ if __name__=="__main__":
         print("max ntl: ", max_value)
         print("min ntl: ", min_value)
         print("drop rate: ", (max_value - min_value) / (max_value))
+        print("recovery rate: ", (smooth_value_new_afterfit[240] - min_value) / (max_value - min_value))
+        print("power supply index: ", (smooth_value_new_afterfit[240]) / (max_value))
+
 
 # import numpy as np
 # arr = [18,14,56,22,6,64,99,24,16,97]
