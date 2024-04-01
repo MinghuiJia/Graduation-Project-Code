@@ -94,8 +94,8 @@ def drawPlot(time,value,smooth_value,smooth_value_before,key_words):
 
     # plt.plot(time, smooth_value, color="red", label="NTL estimated",linewidth=2)
 
-    plt.plot_date(time_datetime, smooth_value_before, color="red", label="未经过角度校正的夜间灯光估算结果", linewidth=3,
-                  linestyle='-', marker='')
+    # plt.plot_date(time_datetime, smooth_value_before, color="red", label="未经过角度校正的夜间灯光估算结果", linewidth=3,
+    #               linestyle='-', marker='')
     plt.plot_date(time_datetime, smooth_value, color="#0072B2", label="经过角度校正的夜间灯光估算结果", linewidth=3,
                   linestyle='-', marker='')
     # plt.plot(restored_time,restored_percent,color="black",label="official report",linewidth=2)
