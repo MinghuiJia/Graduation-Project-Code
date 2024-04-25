@@ -121,7 +121,7 @@ def processPixelTimeSeries(time_list, ntl_list, start_time, end_time):
         for j in range(diff_count):
             YYYYMMDD_list = jd_to_time(str(before_time + j + 1)).split('.')
             new_time_list.append(int(str(YYYYMMDD_list[0]) + str(YYYYMMDD_list[1]) + str(YYYYMMDD_list[2])))
-            new_ntl_list.append(float(65535))
+            new_ntl_list.append(float(np.nan))
             list_index += 1
 
     return new_time_list, new_ntl_list
