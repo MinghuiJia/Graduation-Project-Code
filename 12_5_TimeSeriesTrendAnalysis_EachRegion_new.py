@@ -66,7 +66,7 @@ def TakingMovingAverage(x,y,window):
     rolling_mean = rolling.mean()
     return rolling_mean
 
-def drawPlot(time,value,smooth_value,smooth_value_before,key_words):
+def drawPlot(time,value,smooth_value,smooth_value_before,key_words,writer):
     # plt.plot(time, value, color="blue", label="ori_value")
     # plt.tick_params
     plt.figure(figsize=(14, 7))
@@ -91,6 +91,12 @@ def drawPlot(time,value,smooth_value,smooth_value_before,key_words):
         datetime_temp = dtime.datetime.strptime(time[i], "%Y%m%d")
         time_datetime.append(datetime_temp)
     print("time_datetime", time_datetime)
+
+    df = pd.DataFrame({
+        'DateTime': time,
+        'Value': smooth_value
+    })
+    df.to_excel(writer, sheet_name=key_words, index=False)
 
     # plt.plot(time, smooth_value, color="red", label="NTL estimated",linewidth=2)
 
@@ -170,6 +176,8 @@ if __name__=="__main__":
         "Kahramanmaras":"Kahramanmaras",
         "Samandag":"Samandag",
     }
+
+    writer = pd.ExcelWriter('output-longTime.xlsx')
 
     for country_english in country_dic:
 
@@ -301,8 +309,9 @@ if __name__=="__main__":
             smooth_value_new_beforefit[357] += 10
             smooth_value_new_beforefit[465] += 5
             smooth_value_new_beforefit[509] += 5
-        drawPlot(total_time[145:],total_value_afterfit[145:],smooth_value_new_afterfit[145:],smooth_value_new_beforefit[145:], country_dic[country_english])
+        drawPlot(total_time[145:],total_value_afterfit[145:],smooth_value_new_afterfit[145:],smooth_value_new_beforefit[145:], country_dic[country_english], writer)
 
+    writer.close()
 # import numpy as np
 # arr = [18,14,56,22,6,64,99,24,16,97]
 # # arr = np.divide(arr, 10)

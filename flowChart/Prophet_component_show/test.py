@@ -28,7 +28,7 @@ m = Prophet(holidays=holidays, holidays_prior_scale=10.0)
 m.fit(df)
 
 # 构建待预测日期数据框，periods = 365 代表除历史数据的日期外再往后推 365 天
-future = m.make_future_dataframe(periods=365)
+future = m.make_future_dataframe(periods=0)
 future.tail()
 # 预测数据集
 forecast = m.predict(future)
