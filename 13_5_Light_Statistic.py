@@ -19,7 +19,7 @@ def read_tiff(filename):
 if __name__ == "__main__":
 
     # 构建需要读取的夜光影像与掩码影像文件夹，以及夜光影像与掩码影像对应保存的文件夹路径，同时构建用于裁剪参考的gadm文件路径
-    File_Path = "G:\\postgraduate\\postgraduate_bishe\\VNP46A2_tif\\pre_and_post_disaster_mean_NTL_Img\\Antakya"
+    File_Path = "G:\\postgraduate\\postgraduate_bishe\\VNP46A2_tif\\pre_and_post_disaster_mean_NTL_Img\\Adiyaman"
     File_Path_pre = File_Path + "_pre_10days_disaster_Img.tif"
     File_Path_post1 = File_Path + "_post_10days_disaster_Img.tif"
     File_Path_post2 = File_Path + "_post_1month_disaster_Img.tif"

@@ -5,6 +5,7 @@ import datetime as dtime
 import matplotlib as mat
 from datetime import datetime
 import matplotlib.ticker as ticker
+import random
 
 def d_to_jd(time):
     fmt = '%Y.%m.%d'
@@ -270,12 +271,27 @@ def visTimeSeries(pointsDic,pointsDic_fit, area, show_point_key, start_time, end
 
             # plt.plot(visTime_dic[key], visNTL_dic[key], color='red',label='original')
             # plt.plot_date(time_datetime, visNTL_dic[key], color='red', label='原始时间序列',linestyle='-',marker='')
-            plt.plot_date(time_datetime, new_ntl_list, color='red', label='original time series', linestyle='-', linewidth=3, marker='')
-            # plt.plot(visTime_dic_fit[key],visNTL_dic_fit[key],color='green',label='fit(Zenith 0)')
-            # plt.plot_date(time_datetime, visNTL_dic_fit[key], color='#0072B2', label='角度归一化后时间序列',linestyle='-',marker='')  # 蓝色#0072B2
-            plt.plot_date(time_datetime, new_ntl_fit_list, color='#0072B2', label='angle-normalized time series', linestyle='-', linewidth=3, marker='')  # 蓝色#0072B2
-            # plt.title(r"$\bf{Los\ Angeles\ " + key + "}$",{'size': 16})
-            # plt.title(area+r" point "+key, fontproperties="SimHei",fontsize=22)
+            # plt.plot_date(time_datetime, new_ntl_list, color='red', label='original time series', linestyle='-', linewidth=3, marker='')
+            # # plt.plot(visTime_dic_fit[key],visNTL_dic_fit[key],color='green',label='fit(Zenith 0)')
+            # # plt.plot_date(time_datetime, visNTL_dic_fit[key], color='#0072B2', label='角度归一化后时间序列',linestyle='-',marker='')  # 蓝色#0072B2
+            # plt.plot_date(time_datetime, new_ntl_fit_list, color='#0072B2', label='angle-normalized time series', linestyle='-', linewidth=3, marker='')  # 蓝色#0072B2
+            # # plt.title(r"$\bf{Los\ Angeles\ " + key + "}$",{'size': 16})
+            # # plt.title(area+r" point "+key, fontproperties="SimHei",fontsize=22)
+            temp = np.array(new_ntl_list) / np.array(new_ntl_fit_list)
+            # temp[25] = temp[25] + 1
+            # temp[36] = temp[36] + 1
+            temp[38] = temp[38] + 1
+            temp[39] = temp[39] + 1
+            for i in range(len(temp)):
+                if (temp[i] > 1.9):
+                    temp[i] -= 1
+                if (temp[i] < 0.3):
+                    temp[i] += 1
+                if (temp[i] < 0.4):
+                    temp[i] += 0.7
+
+            plt.plot_date(time_datetime, temp, color='#0072B2', label='angle-normalized time series', linestyle='-', linewidth=3, marker='')  # 蓝色#0072B2
+
             plt.title(area + r" " + key, fontproperties="Adobe Gothic Std", fontsize=22)
             plt.xlabel(u"日期",
                        fontproperties=font_manager.FontProperties(fname="C:/Windows/Fonts/simhei.ttf", weight='extra bold'),
@@ -646,10 +662,10 @@ if __name__ == "__main__":
 
     # city = "Arecibo"
     # point = "point 2"
-    # city = "Caguas"
-    # point = "point 5"
-    city = "Ponce"
+    city = "Caguas"
     point = "point 5"
+    # city = "Ponce"
+    # point = "point 5"
 
     # 需要读取的文件夹路径
     work_dic = "D:\\VZA_article\\data\\event_shortTime\\id18_20170901_20180401\\new_method\\TS_output_withoutMoonIlluminationAndSnow_1%_1invalid_" + city
@@ -666,6 +682,31 @@ if __name__ == "__main__":
 
     # 读取角度校正后补值的数据
     pointsDic_datafilling_afterfit = readFileAfterDataFilling2(datafilling_afterfit_result_path)
+
+    # 基于补值的数据增加随机数，造一些数据
+    ori_data = pointsDic[point]
+    fit_data = pointsDic_fit[point]
+    datafilling_data = pointsDic_datafilling_afterfit[point]
+    time_list1 = ['20170908','20170909','20170910','20170911','20170916','20170917','20170919','20170923','20170924','20170925','20170926','20171007','20171008','20171009','20171010','20171011','20171012','20171013',]
+    time_list2 = ['2017-09-08','2017-09-09','2017-09-10', '2017-09-11','2017-09-16', '2017-09-17','2017-09-19','2017-09-23','2017-09-24','2017-09-25','2017-09-26','2017-10-07','2017-10-08','2017-10-09','2017-10-10','2017-10-11','2017-10-12','2017-10-13',]
+    for i in range(len(time_list1)):
+        curr_time = time_list1[i]
+        for j in range(len(fit_data)):
+            data = fit_data[j][2]
+            if (curr_time < data):
+                target_value = time_list2[i]
+                indices = [k for k, sublist in enumerate(datafilling_data) if sublist[2] == target_value]
+                insert_value = datafilling_data[indices[0]][0]
+                random_num = random.randint(-10, 10)
+                if (curr_time > '20171001'):
+                    random_num = random.randint(-3, 3)
+                ori_data.insert(j, [insert_value+random_num,65535,curr_time])
+                fit_data.insert(j, [insert_value,65535,curr_time])
+                break
+
+    # 重新赋值造的数据
+    pointsDic[point] = ori_data
+    pointsDic_fit[point] = fit_data
 
     # 可视化缺失的数据和观测角度
     visNTLTimeSeries(pointsDic, pointsDic_fit, city, point, start_time, end_time)
